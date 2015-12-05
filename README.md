@@ -160,6 +160,8 @@ Web apps built with Polymer Starter Kit come configured with support for [Web Co
 
 Polymer uses [Bower](http://bower.io) for package management. This makes it easy to keep your elements up to date and versioned. For tooling, we use npm to manage Node.js-based dependencies.
 
+Components installed by Bower live in the `app/bower_components` directory. This location is specified by the `.bowerrc` file. Many projects which follow Yeoman conventions place the `bower_components` directory outside of the `app` directory and then mount it using a server. This causes problems for tools like [Vulcanize](https://github.com/polymer/vulcanize) and [web-component-shards](https://github.com/PolymerLabs/web-component-shards) which rely on relative paths. We've chosen to simplify things and have `bower_components` live inside of `app` to resolve these issues.
+
 ## Deploy
 
 ### Github Pages
@@ -330,7 +332,7 @@ there is a workaround or fix already posted.
 
 ### I'm having trouble getting Vulcanize to fully build my project on Windows. Help?
 
-Some Windows users have run into trouble with the `elements.vulcanized.html` file in their `dist` folder
+Some Windows users have run into trouble with the `elements.html` file in their `dist` folder
 not being correctly vulcanized. This can happen if your project is in a folder with a name containing a
 space. You can work around this issue by ensuring your path doesn't contain one.
 
