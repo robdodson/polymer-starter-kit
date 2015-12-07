@@ -89,15 +89,14 @@ You need to have some changes of configuration to fit for Mobile Chrome Apps as 
 
   // Vulcanize granular configuration
   gulp.task('vulcanize', function() {
-    var DEST_DIR = dist('elements');
-    return gulp.src(dist('elements/elements.vulcanized.html'))
+    return gulp.src('app/elements/elements.html')
       .pipe(polybuild({maximumCrush: true}))
       .pipe($.rename(function(file) {
         if (file.extname === '.html') {
           file.basename = file.basename.replace('.build', '');
         }
       }))
-      .pipe(gulp.dest(DEST_DIR))
+      .pipe(gulp.dest(dist('elements')))
       .pipe($.size({title: 'vulcanize'}));
   });
   ```
